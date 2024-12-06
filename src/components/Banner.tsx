@@ -1,6 +1,6 @@
 export default function Banner() {
   return (
-    <div className="p-6 py-12 bg-violet-600 text-gray-50 md:mx-[40px] mx-[10px]">
+    <div className="p-6 py-12 bg-violet-600 text-gray-50 max-w-[1025px]  w-full mx-auto ">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           <h2 className="text-center sm:text-6xl text-4xl font-bold sm:tracking-tight">
