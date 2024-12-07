@@ -40,7 +40,7 @@ const products: Product[] = [
     category: "Sports",
   },
   {
-    id: 3,
+    id: 4,
     brand: "Reebok",
     productName: "Reebok Classic",
     price: 3500,
@@ -91,10 +91,10 @@ export default function Page() {
                         <Ruppess />.{" "}
                         {Product.price - (Product.price * 30) / 100}
                       </p>
-                      <p className="text-sm  text-gray-400 flex items-center gap-2">
+                      <span className="text-sm  text-gray-400 flex items-center gap-2">
                         <p className="text-black">-30% </p>
                         <p className="line-through">{Product.price}</p>
-                      </p>
+                      </span>
                     </div>
                   </div>
                   <div className="flex text-sm divide-x">
