@@ -129,7 +129,7 @@ const NavBar = () => {
               </div>
             ))}
 
-            <div className="md:block">
+            <div className="hidden md:block">
               <Link
                 className="text-sm bg-violet-600 w-[80px] h-[25px] text-center flex items-center justify-center rounded-sm text-white cursor-pointer"
                 href={"/log-in"}
