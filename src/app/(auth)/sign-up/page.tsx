@@ -2,6 +2,13 @@
 import React from "react";
 import Link from "next/link";
 
+const formElement = [
+  { id: 1, label: "Username", type: "String" },
+  { id: 2, label: "Phone Number", type: "Number" },
+  { id: 3, label: "Email", type: "email" },
+  { label: "Password", type: "password" },
+];
+
 export default function page() {
   return (
     <div className="flex justify-center items-center bg-[url('/background.webp')] bg-center bg-cover h-screen">
@@ -19,47 +26,25 @@ export default function page() {
               </Link>
             </p>
             <form className="mt-5">
+              {formElement.map((value) => (
+                <div className="space-y-4" key={value.id}>
+                  <div>
+                    <label className="text-base font-medium text-gray-900">
+                      {value.label}
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        placeholder={value.label}
+                        type={value.type}
+                        className="flex h-10 w-full rounded-md bg-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        name={value.label}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
               <div className="space-y-4">
                 <div>
-                  <label className="text-base font-medium text-gray-900">
-                    User Name
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      placeholder="Full Name"
-                      type="text"
-                      className="flex h-10 w-full rounded-md bg-gray-200 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      name="user_name"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="text-base font-medium text-gray-900">
-                    Email address
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      placeholder="Email"
-                      type="email"
-                      className="flex h-10 w-full rounded-md bg-gray-200 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      name="email"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-center justify-between">
-                    <label className="text-base font-medium text-gray-900">
-                      Password
-                    </label>
-                  </div>
-                  <div className="mt-2">
-                    <input
-                      placeholder="Password"
-                      type="password"
-                      className="flex h-10 w-full rounded-md bg-gray-200 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      name="password"
-                    />
-                  </div>
                   <div className="flex items-center justify-between mt-3">
                     <label className="text-base font-medium text-gray-900">
                       Profile Picture
