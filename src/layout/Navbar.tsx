@@ -61,8 +61,11 @@ const NavBar = () => {
                   </div>
                 </div>
                 <span className="flex items-center gap-7 text-gray-500">
-                  <Link href={"/cart"}>
+                  <Link href={"/cart"} className="flex items-center ">
                     <Cart />
+                    <div className="relative top-[-5px] text-red-700 animate-pulse font-bold">
+                      4
+                    </div>
                   </Link>
                   <Bell />
                 </span>
