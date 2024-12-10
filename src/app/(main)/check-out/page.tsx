@@ -22,7 +22,9 @@ const Checkout = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (paymentMethod === "cod") {
-      <Link href={"/complete-payment/check-out"}></Link>;
+      <Link
+        href={"nexo-footwears.vercel.app/complete-payment/check-out"}
+      ></Link>;
     } else if (paymentMethod === "khalti") {
       router.push("https:www.khalti.com");
     } else {
