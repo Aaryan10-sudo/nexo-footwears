@@ -2,7 +2,10 @@
 
 import Ruppess from "@/ui/Ruppees";
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
+
+import Link from "next/link";
 
 const Checkout = () => {
   const router = useRouter(); // Correct usage
@@ -20,7 +23,7 @@ const Checkout = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (paymentMethod === "cod") {
-      router.push("http://localhost:3000/check-out/complete-payment");
+      <Link href={"/complete-payment/check-out"}></Link>;
     } else if (paymentMethod === "khalti") {
       router.push("https:www.khalti.com");
     } else {
