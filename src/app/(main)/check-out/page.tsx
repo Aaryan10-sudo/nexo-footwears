@@ -2,8 +2,7 @@
 
 import Ruppess from "@/ui/Ruppees";
 import { useState } from "react";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import Link from "next/link";
 
