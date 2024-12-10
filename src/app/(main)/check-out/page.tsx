@@ -4,8 +4,6 @@ import Ruppess from "@/ui/Ruppees";
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import Link from "next/link";
-
 const Checkout = () => {
   const router = useRouter(); // Correct usage
   const searchParams = useSearchParams();
@@ -22,9 +20,7 @@ const Checkout = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (paymentMethod === "cod") {
-      <Link
-        href={"nexo-footwears.vercel.app/complete-payment/check-out"}
-      ></Link>;
+      router.push("/check-out/complete-payment");
     } else if (paymentMethod === "khalti") {
       router.push("https:www.khalti.com");
     } else {
