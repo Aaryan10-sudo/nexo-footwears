@@ -1,4 +1,5 @@
 import Ruppess from "@/ui/Ruppees";
+import Link from "next/link";
 
 export type Product = {
   readonly id: number;
@@ -143,20 +144,22 @@ export default function Page() {
           </p>
         </div>
         <div className="flex justify-end space-x-4">
-          <button
+          <Link
+            href={"/"}
             type="button"
             className="px-6 py-2 border rounded-md border-violet-600"
           >
             Back
             <span className="sr-only sm:not-sr-only"> to shop</span>
-          </button>
-          <button
+          </Link>
+          <Link
+            href={`/check-out?id=${"123132321334"}&totalPrice=${totalSum}&productName=${"shoes"}`}
             type="button"
             className="px-6 py-2 border rounded-md bg-violet-600 text-gray-50 border-violet-600"
           >
             <span className="sr-only sm:not-sr-only">Continue to </span>
             Checkout
-          </button>
+          </Link>
         </div>
       </div>
     </div>

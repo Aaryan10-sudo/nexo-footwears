@@ -1,7 +1,11 @@
+"use client";
+
 import Cart from "@/ui/Cart";
 import React from "react";
 import Ruppess from "../ui/Ruppees";
 import Category from "@/ui/Category";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export type Product = {
   readonly id: number;
@@ -80,6 +84,7 @@ export default function Products() {
       className="min-w-screen left-0 top-0 flex justify-center items-center outline-none focus:outline-none bg-no-repeat bg-center "
       id="modal-id"
     >
+      <ToastContainer />
       <div className=" min-h-screen flex flex-col items-center justify-center ">
         <h1 className="font-bold text-[30px]">Our Featured Products</h1>
         <div className="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
@@ -117,7 +122,12 @@ export default function Products() {
                     <div className="flex p-4 pb-2 border-t border-gray-200 "></div>
                     <div className="flex space-x-3 text-sm font-medium">
                       <div className="flex-auto flex space-x-3">
-                        <button className="mb-2 md:mb-0 bg-white px-4 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full hover:bg-gray-100 inline-flex items-center space-x-2 ">
+                        <button
+                          className="mb-2 md:mb-0 bg-white px-4 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full hover:bg-gray-100 inline-flex items-center space-x-2"
+                          onClick={() => {
+                            toast.success("Item added to cart!");
+                          }}
+                        >
                           <span className="text-violet-500 hover:text-violet-600 rounded-lg">
                             <Cart />
                           </span>

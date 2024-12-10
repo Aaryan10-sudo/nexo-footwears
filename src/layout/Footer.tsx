@@ -31,26 +31,28 @@ export default function Footer() {
           </div>
           <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
             <div className="space-y-3">
-              <h3 className="tracking-wide uppercase text-gray-900">Product</h3>
+              <h3 className="tracking-wide uppercase text-gray-900">
+                Quick Links
+              </h3>
               <ul className="space-y-1">
                 <li>
                   <a rel="noopener noreferrer" href="#">
-                    Features
+                    Home
                   </a>
                 </li>
                 <li>
                   <a rel="noopener noreferrer" href="#">
-                    Integrations
+                    About
                   </a>
                 </li>
                 <li>
                   <a rel="noopener noreferrer" href="#">
-                    Pricing
+                    Contact
                   </a>
                 </li>
                 <li>
                   <a rel="noopener noreferrer" href="#">
-                    FAQ
+                    Product
                   </a>
                 </li>
               </ul>
@@ -60,32 +62,32 @@ export default function Footer() {
               <ul className="space-y-1">
                 <li>
                   <a rel="noopener noreferrer" href="#">
-                    Privacy
+                    About
                   </a>
                 </li>
                 <li>
                   <a rel="noopener noreferrer" href="#">
-                    Terms of Service
+                    Contact
                   </a>
                 </li>
               </ul>
             </div>
             <div className="space-y-3">
-              <h3 className="uppercase text-gray-900">Developers</h3>
+              <h3 className="uppercase text-gray-900">Contact</h3>
               <ul className="space-y-1">
                 <li>
                   <a rel="noopener noreferrer" href="#">
-                    Public API
+                    lazyfox916@gmail.com
                   </a>
                 </li>
                 <li>
                   <a rel="noopener noreferrer" href="#">
-                    Documentation
+                    +977 9761637657
                   </a>
                 </li>
                 <li>
                   <a rel="noopener noreferrer" href="#">
-                    Guides
+                    Kapan-3, Kathmandu
                   </a>
                 </li>
               </ul>
@@ -122,7 +124,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="py-6 text-sm text-center text-gray-600">
-          © 2025 Company Co. All rights reserved.
+          © 2025 Nexo Footwears Co. All rights reserved.
         </div>
       </footer>
     </>

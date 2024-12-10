@@ -9,6 +9,7 @@ export const navLists = [
   { links: "/about", label: "About" },
   { links: "/products", label: "Products" },
   { links: "/contact", label: "Contact" },
+  { links: "/Orders", label: "Orders" },
 ];
 
 const NavBar = () => {
@@ -134,7 +135,7 @@ const NavBar = () => {
 
             <div className="hidden md:block">
               <Link
-                className="text-sm bg-violet-600 w-[80px] h-[25px] text-center flex items-center justify-center rounded-sm text-white cursor-pointer"
+                className="text-sm bg-violet-600 w-[80px] h-[25px] text-center flex items-center justify-center rounded-sm text-white cursor-pointer font-semibold"
                 href={"/log-in"}
               >
                 Login
