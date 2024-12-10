@@ -1,3 +1,5 @@
+"use client";
+
 import AnimatedTick from "@/components/AnimatedTick";
 import Link from "next/link";
 
