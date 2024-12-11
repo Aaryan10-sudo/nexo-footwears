@@ -175,3 +175,19 @@ body {
   display: inline-block;
   margin: 0 16px;
 }
+
+.custom-shape-divider-bottom-1733827394 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1733827394 svg {
+  position: relative;
+  display: block;
+  width: calc(113% + 1.3px);
+  height: 163px;
+}

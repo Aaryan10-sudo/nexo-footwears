@@ -28,7 +28,7 @@ export default function Page() {
         </p>
         <div className="flex gap-10 justify-center my-10">
           <Link
-            className="bg-white border border-violet-600 w-[150px] h-[40px] flex justify-center items-center rounded-md font-semibold"
+            className="bg-white border-2 border-violet-600 w-[150px] h-[40px] flex justify-center items-center rounded-md font-semibold"
             href={"/"}
           >
             Back to Homepage

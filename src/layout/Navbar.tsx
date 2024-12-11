@@ -2,6 +2,7 @@
 import Bell from "@/ui/Bell";
 import Cart from "@/ui/Cart";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export const navLists = [
@@ -14,6 +15,7 @@ export const navLists = [
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <nav className=" bg-white shadow-sm dark:bg-gray-800 sticky top-0 z-50">
@@ -125,7 +127,11 @@ const NavBar = () => {
                 key={navLink.label}
               >
                 <Link
-                  className="my-2 text-sm leading-5 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-violet-600 hover:underline md:mx-4 md:my-0 underline-offset-8 decoration-[2px] decoration"
+                  className={`${"my-2 text-sm leading-5 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-violet-600 hover:underline md:mx-4 md:my-0 underline-offset-8 decoration-[2px]"} ${
+                    pathname === navLink.links
+                      ? "font-medium text-violet-600"
+                      : ""
+                  }`}
                   href={navLink.links}
                 >
                   {navLink.label}

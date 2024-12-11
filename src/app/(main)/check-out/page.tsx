@@ -167,14 +167,12 @@ const Checkout = () => {
             </div>
           </div>
 
-          <div className="mt-6">
-            <button
-              type="submit"
-              className="w-full py-2 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
-            >
-              Proceed to Payment
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="w-full py-2 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
+          >
+            Proceed to Payment
+          </button>
         </div>
       </form>
     </div>
