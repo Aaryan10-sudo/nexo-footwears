@@ -1,17 +1,20 @@
 "use client";
 
+import { baseUrl } from "@/config/config";
 import { setUserInfo } from "@/redux/infoSlice";
+import { RootState } from "@/store/store";
 import axios from "axios";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function ClientInfo() {
-  const token = localStorage.getItem("authToken");
   const dispatch = useDispatch();
+  const token = useSelector((state: RootState) => state.auth.token);
+
   const getUserInfo = async () => {
     try {
       const result = await axios({
-        url: `http://localhost:3333/user`,
+        url: `${baseUrl}/user`,
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

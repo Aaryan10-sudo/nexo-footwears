@@ -1,4 +1,4 @@
-import AnimatedCart from "@/components/AnimatedCart";
+// import AnimatedCart from "@/components/AnimatedCart";
 
 export default function Page() {
   return (
@@ -17,7 +17,7 @@ export default function Page() {
         </div>
 
         <div className="flex flex-col w-[40%] md:w-auto">
-          <AnimatedCart />
+          {/* <AnimatedCart /> */}
         </div>
       </div>
     </div>

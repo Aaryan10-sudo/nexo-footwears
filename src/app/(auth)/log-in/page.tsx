@@ -25,7 +25,6 @@ export default function page() {
       const result = await signIn(data);
       const token = result.data.token;
       if (token) {
-        localStorage.setItem("authToken", token);
         dispatch(login(token));
         toast.success(result.data.message);
         router.push("/");

@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import axios from "axios";
 import { useSignUpMutation } from "@/services/webService";
 
 export default function page() {
