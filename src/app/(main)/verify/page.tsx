@@ -1,5 +1,6 @@
 "use client";
 
+import { baseUrl } from "@/config/config";
 // import AnimatedMail from "@/components/AnimatedMail";
 import Warning from "@/ui/Warning";
 import axios from "axios";
@@ -16,7 +17,7 @@ export default function page() {
   const verifyUser = async () => {
     try {
       const result = await axios({
-        url: `http://localhost:3333/verify/`,
+        url: `${baseUrl}/verify/`,
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
