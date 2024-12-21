@@ -1,3 +1,4 @@
+"use client";
 import Hero from "@/components/Hero";
 import "./globals.css";
 import Banner from "@/components/Banner";

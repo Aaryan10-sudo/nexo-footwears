@@ -1,21 +1,35 @@
 "use client";
-import Bell from "@/ui/Bell";
-import Cart from "@/ui/Cart";
+
+import DesktopSearchbar from "@/components/DesktopSearchbar";
+import UserProfileDropdown from "@/components/UserProfileDropdown";
+import { logout } from "@/redux/authSlice";
+import { RootState } from "@/store/store";
+import Signout from "@/ui/Signout";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export const navLists = [
   { links: "/", label: "Home" },
   { links: "/about", label: "About" },
   { links: "/products", label: "Products" },
   { links: "/contact", label: "Contact" },
-  { links: "/Orders", label: "Orders" },
+  { links: "/orders", label: "Orders" },
 ];
 
 const NavBar = () => {
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+  const userInfo = useSelector((state: RootState) => state.info);
+  const dispatch = useDispatch();
+
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    dispatch(logout());
+  };
 
   return (
     <nav className=" bg-white shadow-sm dark:bg-gray-800 sticky top-0 z-50">
@@ -37,42 +51,7 @@ const NavBar = () => {
                 <h1 className="font-bold text-[20px]">Nexo Footwears</h1>
               </Link>
 
-              {/* Search input on desktop */}
-              <div className="flex items-center">
-                <div className="hidden mx-10 md:block">
-                  <div className="relative">
-                    <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                      <svg
-                        className="w-5 h-5 text-gray-400"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        ></path>
-                      </svg>
-                    </span>
-                    <input
-                      type="text"
-                      className="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
-                      placeholder="Search"
-                    />
-                  </div>
-                </div>
-                <span className="flex items-center gap-7 text-gray-500">
-                  <Link href={"/cart"} className="flex items-center ">
-                    <Cart />
-                    <div className="relative top-[-5px] text-red-700 animate-pulse font-bold">
-                      4
-                    </div>
-                  </Link>
-                  <Bell />
-                </span>
-              </div>
+              <DesktopSearchbar />
             </div>
 
             <div className="flex lg:hidden">
@@ -138,15 +117,18 @@ const NavBar = () => {
                 </Link>
               </div>
             ))}
-
-            <div className="hidden md:block">
-              <Link
-                className="text-sm bg-violet-600 w-[80px] h-[25px] text-center flex items-center justify-center rounded-sm text-white cursor-pointer font-semibold"
-                href={"/log-in"}
-              >
-                Login
-              </Link>
-            </div>
+            {!isLoggedIn ? (
+              <div className="hidden md:block">
+                <Link
+                  className="text-sm bg-violet-600 w-[80px] h-[25px] text-center flex items-center justify-center rounded-sm text-white cursor-pointer font-semibold"
+                  href={"/log-in"}
+                >
+                  Login
+                </Link>
+              </div>
+            ) : (
+              <UserProfileDropdown />
+            )}
 
             <div className="my-4 md:hidden flex flex-col gap-5 items-center">
               <div className="relative">
@@ -171,13 +153,40 @@ const NavBar = () => {
                   placeholder="Search"
                 />
               </div>
+              {isLoggedIn ? (
+                <>
+                  <div className="flex items-center gap-3">
+                    <div className="bg-gray-500 h-10 w-10 rounded-full overflow-hidden">
+                      <img src={userInfo.image} />
+                    </div>
 
-              <Link
-                className="bg-violet-600 p-2 w-[100px] text-center font-medium text-white rounded-lg"
-                href={"/log-in"}
-              >
-                Log-in
-              </Link>
+                    <div className="flex flex-col">
+                      <span>{userInfo.name}</span>
+                      <div className="flex flex-col">
+                        <span className="text-[11px] text-gray-400">
+                          {userInfo.email}
+                        </span>
+                        <span className="text-[11px] text-gray-400">
+                          {userInfo.phoneNumber}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    className="text-sm w-[80px] text-center flex items-center justify-center text-red-600 cursor-pointer gap-2"
+                    onClick={handleLogout}
+                  >
+                    Log Out <Signout />
+                  </button>
+                </>
+              ) : (
+                <Link
+                  className="bg-violet-600 p-2 w-[100px] text-center font-medium text-white rounded-lg"
+                  href={"/log-in"}
+                >
+                  Log-in
+                </Link>
+              )}
             </div>
           </div>
         </div>

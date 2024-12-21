@@ -1,8 +1,9 @@
+"use client"
+
+import { Provider } from "react-redux";
 import "../(main)/globals.css";
-export const metadata = {
-  title: "Nexo footwears",
-  description: "Step into fashion with us",
-};
+import store from "@/store/store";
+
 
 export default function RootLayout({
   children,
@@ -10,8 +11,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <Provider store={store}>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </Provider>
   );
 }

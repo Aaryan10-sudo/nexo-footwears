@@ -1,6 +1,7 @@
 import React from "react";
+import { HashRouter } from "react-router-dom";
 
-const ContactUs: React.FC = () => {
+export default function page() {
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="container px-6 py-10 mx-auto">
@@ -121,6 +122,4 @@ const ContactUs: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default ContactUs;
+}

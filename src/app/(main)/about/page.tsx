@@ -1,11 +1,6 @@
-import Brands from "@/components/Brands";
 import CashOnDelivery from "@/ui/CashOnDelivery";
 import Crown from "@/ui/Crown";
 import Dollar from "@/ui/Dollar";
-import Facebook from "@/ui/Facebook";
-import Instagram from "@/ui/Instagram";
-import Twitter from "@/ui/Twitter";
-import Link from "next/link";
 
 export default function page() {
   return (
@@ -61,7 +56,7 @@ export default function page() {
                 Where Style Meets Comfort
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-gray-600">
-                At Nexo Footwear, we’re passionate about bringing you the finest
+                At Nexo Footwear, we're passionate about bringing you the finest
                 selection of footwear from top brands. Our mission is to provide
                 a seamless shopping experience, combining quality, variety, and
                 exceptional customer service. Whether you're looking for

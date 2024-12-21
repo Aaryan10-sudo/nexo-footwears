@@ -17,7 +17,7 @@ export type Product = {
   category: string;
 };
 
-const products: Product[] = [
+export const products: Product[] = [
   {
     id: 1,
     brand: "Nike",
