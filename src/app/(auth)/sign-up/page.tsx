@@ -2,9 +2,13 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useSignUpMutation } from "@/services/webService";
+import Loader from "@/ui/Loader";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function page() {
   const [username, setUsername] = useState("");
+  const [loader, setLoader] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -48,6 +52,7 @@ export default function page() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoader(true);
     const data = {
       email: email,
       username: username,
@@ -60,8 +65,15 @@ export default function page() {
       // Call the mutation with the data object
       const response = await signUpData(data);
       console.log("Signup successful:", response);
+      setLoader(false);
+      setUsername("");
+      setEmail("");
+      setPhoneNumber("");
+      setImage("");
+      setPassword("");
+      toast.success(response.data.message);
     } catch (error) {
-      console.error("Error during signup:", error);
+      setLoader(false);
     }
   };
 
@@ -74,6 +86,7 @@ export default function page() {
 
   return (
     <div className="flex justify-center items-center bg-[url('/background.webp')] bg-center bg-cover h-screen">
+      <ToastContainer />
       <section className="rounded-xl p-2 bg-gray-50 w-[350px] shadow-xl transition-all ease-linear hover:scale-[1.02]">
         <div className="flex items-center justify-center my-3">
           <div className="xl:mx-auto p-4 xl:w-full xl:max-w-sm 2xl:max-w-md">
@@ -129,9 +142,9 @@ export default function page() {
                 <div>
                   <button
                     type="submit"
-                    className="inline-flex w-full items-center justify-center rounded-md bg-violet-600 px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-violet-500"
+                    className="flex w-full items-center justify-center rounded-md bg-violet-600 px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-violet-500"
                   >
-                    Create Account
+                    {loader ? <Loader /> : "Create Account"}
                   </button>
                 </div>
               </div>

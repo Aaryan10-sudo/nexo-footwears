@@ -106,7 +106,7 @@ const NavBar = () => {
                 key={navLink.label}
               >
                 <Link
-                  className={`${"my-2 text-sm leading-5 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-violet-600 hover:underline md:mx-4 md:my-0 underline-offset-8 decoration-[2px]"} ${
+                  className={`${"my-2 text-sm leading-5 text-gray-700 duration-300 transform dark:text-gray-200 hover:text-violet-600 hover:underline md:mx-4 md:my-0 underline-offset-8 decoration-[2px]"} ${
                     pathname === navLink.links
                       ? "font-medium text-violet-600"
                       : ""

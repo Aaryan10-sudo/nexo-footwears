@@ -3,6 +3,7 @@
 import { login } from "@/redux/authSlice";
 import { useSignInMutation } from "@/services/webService";
 import { RootState } from "@/store/store";
+import Loader from "@/ui/Loader";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -12,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function page() {
   const [email, setEmail] = useState("");
+  const [loader, setLoader] = useState(false);
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const router = useRouter();
@@ -22,6 +24,7 @@ export default function page() {
     e.preventDefault();
     const data = { email, password };
     try {
+      setLoader(true);
       const result = await signIn(data);
       const token = result.data.token;
       if (token) {
@@ -29,7 +32,10 @@ export default function page() {
         toast.success(result.data.message);
         router.push("/");
       }
-    } catch (error) {}
+      setLoader(false);
+    } catch (error) {
+      setLoader(false);
+    }
   };
   return (
     <>
@@ -76,11 +82,18 @@ export default function page() {
                   </a>
                 </div>
               </div>
+
               <button
                 type="submit"
                 className="block w-full p-3 text-center rounded-sm text-gray-50 bg-violet-600 font-bold"
               >
-                Sign in
+                {loader ? (
+                  <div className="flex justify-center w-full">
+                    <Loader />
+                  </div>
+                ) : (
+                  "Sign in"
+                )}
               </button>
             </form>
 

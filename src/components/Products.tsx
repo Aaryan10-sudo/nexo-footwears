@@ -123,19 +123,19 @@ export default function Products() {
                     <div className="flex space-x-3 text-sm font-medium">
                       <div className="flex-auto flex space-x-3">
                         <button
-                          className="mb-2 md:mb-0 bg-white px-4 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full hover:bg-gray-100 inline-flex items-center space-x-2"
+                          className="mb-2 md:mb-0 bg-white px-4 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full hover:bg-gray-100 inline-flex items-center space-x-2 group"
                           onClick={() => {
                             toast.success("Item added to cart!");
                           }}
                         >
-                          <span className="text-violet-500 hover:text-violet-600 rounded-lg">
+                          <span className="text-gray-500 group-hover:text-violet-600 rounded-lg">
                             <Cart />
                           </span>
                           <span>Add to cart</span>
                         </button>
                       </div>
                       <button
-                        className="mb-2 md:mb-0 bg-violet-600 px-5 py-2 shadow-sm tracking-wider text-white rounded-full hover:bg-gray-800"
+                        className="mb-2 md:mb-0 bg-violet-500 px-5 py-2 shadow-sm tracking-wider text-white rounded-full hover:bg-violet-600"
                         type="button"
                         aria-label="like"
                       >
