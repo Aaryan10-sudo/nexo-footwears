@@ -5,7 +5,7 @@ import Dollar from "@/ui/Dollar";
 export default function page() {
   return (
     <>
-      <section className="py-10 sm:py-16 lg:py-10">
+      <section className="py-10 sm:py-16 lg:py-10 bg-white">
         <h1 className="text-center mb-[20px] font-bold text-xl text-violet-600">
           About Nexo
         </h1>

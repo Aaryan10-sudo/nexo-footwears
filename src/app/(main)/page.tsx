@@ -9,7 +9,7 @@ import Payments from "@/components/Payments";
 
 export default function Home() {
   return (
-    <div className="pb-[30px]">
+    <div className="pb-[30px] bg-white">
       <Hero />
       <Banner />
       <Feature />

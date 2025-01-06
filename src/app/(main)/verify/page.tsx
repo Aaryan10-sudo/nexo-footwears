@@ -1,6 +1,7 @@
 "use client";
 
 import { baseUrl } from "@/config/config";
+import VerifiedMail from "@/ui/VerifiedMail";
 // import AnimatedMail from "@/components/AnimatedMail";
 import Warning from "@/ui/Warning";
 import axios from "axios";
@@ -45,7 +46,7 @@ export default function page() {
     <>
       {isValid ? (
         <div className="h-screen flex flex-col justify-center items-center">
-          {/* <AnimatedMail /> */}
+          <VerifiedMail />
           <h1 className="font-bold">Email verified successfully !!!</h1>
           <p className="text-center">You'll be redirected to log-in page.</p>
           <p className="text-center">

@@ -1,7 +1,9 @@
 export default function Payments() {
   return (
     <>
-      <h1 className="font-bold text-[30px] text-center">We Accept</h1>
+      <h1 className="font-bold text-[30px] text-center text-black">
+        We Accept
+      </h1>
       <br />
       <div className="flex justify-center gap-5">
         <img src="/esewa.webp" alt="e-sewa" className="h-[40px]" />

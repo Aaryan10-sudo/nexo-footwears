@@ -28,7 +28,7 @@ const Loading: React.FC = () => {
   const letters = ["N", "E", "X", "O"];
 
   return (
-    <div className="flex justify-center items-center h-screen text-violet-600">
+    <div className="flex justify-center items-center h-screen text-violet-600 bg-white">
       {letters.map((letter, index) => (
         <Loader key={index} letter={letter} />
       ))}

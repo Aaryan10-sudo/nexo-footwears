@@ -6,10 +6,57 @@ export default function Warning() {
       height="48"
       viewBox="0 0 24 24"
     >
-      <path
-        fill="currentColor"
-        d="m16.161 1.83l-3.997 7.998A1.5 1.5 0 0 0 13.507 12h7.994a1.5 1.5 0 0 0 1.343-2.172L18.847 1.83c-.553-1.107-2.133-1.107-2.686 0m1.843 2.666v3.001a.5.5 0 0 1-1 0V4.496a.5.5 0 0 1 1 0m-.5 5.503a.5.5 0 1 1 0-1.001a.5.5 0 0 1 0 1M21.5 13h-7.884l-1.268.664a.75.75 0 0 1-.696 0L2 8.608v8.142l.005.184A3.25 3.25 0 0 0 5.25 20h13.5l.184-.005A3.25 3.25 0 0 0 22 16.75v-3.799q-.241.048-.5.049M5.25 4h8.71l-2.69 5.38a2.48 2.48 0 0 0 .125 2.456L2.016 6.924a3.25 3.25 0 0 1 3.048-2.919z"
-      />
+      <g
+        fill="none"
+        stroke="#cc1919"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      >
+        <path
+          stroke-dasharray="64"
+          stroke-dashoffset="64"
+          d="M2 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z"
+        >
+          <animate
+            fill="freeze"
+            attributeName="stroke-dashoffset"
+            dur="0.6s"
+            values="64;0"
+          />
+        </path>
+        <path
+          stroke-dasharray="24"
+          stroke-dashoffset="24"
+          d="M1 6.5l9 5.5l9 -5.5"
+        >
+          <animate
+            fill="freeze"
+            attributeName="stroke-dashoffset"
+            begin="0.6s"
+            dur="0.2s"
+            values="24;0"
+          />
+        </path>
+        <path stroke-dasharray="6" stroke-dashoffset="6" d="M23 8v4">
+          <animate
+            fill="freeze"
+            attributeName="stroke-dashoffset"
+            begin="0.8s"
+            dur="0.2s"
+            values="6;0"
+          />
+        </path>
+        <path stroke-dasharray="2" stroke-dashoffset="2" d="M23 16v0.01">
+          <animate
+            fill="freeze"
+            attributeName="stroke-dashoffset"
+            begin="1s"
+            dur="0.2s"
+            values="2;0"
+          />
+        </path>
+      </g>
     </svg>
   );
 }

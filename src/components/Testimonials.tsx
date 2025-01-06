@@ -22,7 +22,7 @@ const Testimonial: Testimonials[] = [
 ];
 export default function Testimonials() {
   return (
-    <section className="my-8 max-w-[1025px] mx-auto">
+    <section className="my-8 max-w-[1025px] mx-auto text-black">
       <div className="max-w-[1025px] mx-auto flex flex-col items-center pb-6 mb-4 md:p-10 md:px-12 justify-between">
         <h1 className="text-4xl font-semibold leading-none text-center">
           What our customers are saying about us

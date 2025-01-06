@@ -2,21 +2,21 @@ import React from "react";
 
 export default function page() {
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className="bg-white ">
       <div className="container px-6 py-10 mx-auto">
         <div className="text-center">
-          <h1 className="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl dark:text-white">
+          <h1 className="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl">
             Get in touch
           </h1>
 
-          <p className="mt-3 text-gray-600 dark:text-gray-500">
+          <p className="mt-3 text-gray-600">
             We are always here to chat and help you ...
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-3">
           <div className="flex flex-col items-center justify-center text-center">
-            <span className="p-3 text-violet-600 rounded-full bg-violet-100/80 dark:bg-gray-800">
+            <span className="p-3 text-violet-600 rounded-full bg-violet-100/80">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -33,19 +33,13 @@ export default function page() {
               </svg>
             </span>
 
-            <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">
-              Email
-            </h2>
-            <p className="mt-2 text-gray-600 dark:text-gray-500">
-              We are here to help.
-            </p>
-            <p className="mt-2 text-violet-600 dark:text-violet-500">
-              lazyfox916@gmail.com
-            </p>
+            <h2 className="mt-4 text-lg font-medium text-gray-800 ">Email</h2>
+            <p className="mt-2 text-gray-600 ">We are here to help.</p>
+            <p className="mt-2 text-violet-600 ">lazyfox916@gmail.com</p>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center">
-            <span className="p-3 text-violet-600 rounded-full bg-violet-100/80 dark:bg-gray-800">
+            <span className="p-3 text-violet-600 rounded-full bg-violet-100/80 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -67,19 +61,15 @@ export default function page() {
               </svg>
             </span>
 
-            <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">
-              Store
-            </h2>
-            <p className="mt-2 text-gray-600 dark:text-gray-500">
-              Come visit us !!!
-            </p>
-            <p className="mt-2 text-violet-600 dark:text-violet-500">
+            <h2 className="mt-4 text-lg font-medium text-gray-800 ">Store</h2>
+            <p className="mt-2 text-gray-600 ">Come visit us !!!</p>
+            <p className="mt-2 text-violet-600 ">
               Budhanikantha - 12 Kapan Kathmandu
             </p>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center">
-            <span className="p-3 text-violet-600 rounded-full bg-violet-100/80 dark:bg-gray-800">
+            <span className="p-3 text-violet-600 rounded-full bg-violet-100/80 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -96,15 +86,9 @@ export default function page() {
               </svg>
             </span>
 
-            <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">
-              Phone
-            </h2>
-            <p className="mt-2 text-gray-600 dark:text-gray-500">
-              Sun-Sat from 10am to 8pm.
-            </p>
-            <p className="mt-2 text-violet-600 dark:text-violet-500">
-              +977 9761637657
-            </p>
+            <h2 className="mt-4 text-lg font-medium text-gray-800 ">Phone</h2>
+            <p className="mt-2 text-gray-600 ">Sun-Sat from 10am to 8pm.</p>
+            <p className="mt-2 text-violet-600 ">+977 9761637657</p>
           </div>
         </div>
       </div>

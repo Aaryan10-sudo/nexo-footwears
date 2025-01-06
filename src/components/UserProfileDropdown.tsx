@@ -24,10 +24,10 @@ const UserProfileDropdown = () => {
         <img src={userInfo.image} className="h-full w-full " />
       </div>
       {profile ? (
-        <div className="absolute top-[50px] bg-white shadow-xl rounded-md h-[250px] w-[250px] right-0 mx-0">
+        <div className="absolute top-[50px] bg-white shadow-xl rounded-md h-[320px] w-[250px] right-0 mx-0">
           <div className="h-[100px] w-full bg-violet-600 rounded-none rounded-tl-lg rounded-tr-lg flex justify-center ">
-            <div className="h-16 w-16 bg-gray-500 absolute rounded-full top-[70px] overflow-hidden">
-              <img src={userInfo.image} />
+            <div className="h-16 w-16 bg-gray-500 absolute rounded-full top-[70px] overflow-hidden object-cover object-center">
+              <img src={userInfo.image} className="w-full h-full" />
             </div>
           </div>
           <br />
@@ -36,7 +36,14 @@ const UserProfileDropdown = () => {
             <p>{userInfo.email}</p>
             <p>{userInfo.phoneNumber}</p>
           </div>
+          <br />
 
+          <div className=" text-[13px] flex justify-center items-center h-[30px]  cursor-pointer border border-white border-b-black">
+            Update Profile
+          </div>
+          <div className=" text-[13px] flex justify-center items-center h-[30px] border border-white border-b-black cursor-pointer">
+            Change Password
+          </div>
           <p
             className="text-center text-red-700 my-[10px] text-[13px] cursor-pointer"
             onClick={() => {

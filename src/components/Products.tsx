@@ -86,7 +86,9 @@ export default function Products() {
     >
       <ToastContainer />
       <div className=" min-h-screen flex flex-col items-center justify-center ">
-        <h1 className="font-bold text-[30px]">Our Featured Products</h1>
+        <h1 className="font-bold text-[30px] text-black">
+          Our Featured Products
+        </h1>
         <div className="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
           {products.map((product: Product) => (
             <div className="flex flex-col " key={product.id}>
@@ -104,7 +106,7 @@ export default function Products() {
                       <div className="w-full flex-none text-xs text-blue-700 font-medium ">
                         {product.brand}
                       </div>
-                      <h2 className="flex-auto text-lg font-medium">
+                      <h2 className="flex-auto text-lg font-medium text-black">
                         {product.productName}
                       </h2>
                     </div>

@@ -27,12 +27,11 @@ const NavBar = () => {
   const pathname = usePathname();
 
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
     dispatch(logout());
   };
 
   return (
-    <nav className=" bg-white shadow-sm dark:bg-gray-800 sticky top-0 z-50">
+    <nav className=" bg-white shadow-sm  sticky top-0 z-50">
       <div className="container px-4 py-3 mx-auto">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center">
           <div className="flex items-center justify-between">
@@ -48,7 +47,9 @@ const NavBar = () => {
                     <path d="M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z"></path>
                   </svg>
                 </div>
-                <h1 className="font-bold text-[20px]">Nexo Footwears</h1>
+                <h1 className="font-bold text-[20px] text-black">
+                  Nexo Footwears
+                </h1>
               </Link>
 
               <DesktopSearchbar />
@@ -58,7 +59,7 @@ const NavBar = () => {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+                className="text-gray-500 hover:text-gray-600 focus:outline-none  focus:text-gray-400"
                 aria-label="toggle menu"
               >
                 <svg
@@ -94,7 +95,7 @@ const NavBar = () => {
           </div>
 
           <div
-            className={`absolute inset-x-0 z-20 w-full px-6 py-2 transition-all duration-300 ease-in-out bg-white top-16 dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center ${
+            className={`absolute inset-x-0 z-20 w-full px-6 py-2 transition-all duration-300 ease-in-out bg-white top-16 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center ${
               isOpen
                 ? "translate-x-0 opacity-100"
                 : "opacity-0 -translate-x-full"
@@ -106,7 +107,7 @@ const NavBar = () => {
                 key={navLink.label}
               >
                 <Link
-                  className={`${"my-2 text-sm leading-5 text-gray-700 duration-300 transform dark:text-gray-200 hover:text-violet-600 hover:underline md:mx-4 md:my-0 underline-offset-8 decoration-[2px]"} ${
+                  className={`${"my-2 text-sm leading-5 text-gray-700 duration-300 transform  hover:text-violet-600 hover:underline md:mx-4 md:my-0 underline-offset-8 decoration-[2px]"} ${
                     pathname === navLink.links
                       ? "font-medium text-violet-600"
                       : ""
@@ -149,7 +150,7 @@ const NavBar = () => {
                 </span>
                 <input
                   type="text"
-                  className="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
+                  className="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md bg-gray-800 text-gray-300 border-gray-600 focus:border-blue-400 focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
                   placeholder="Search"
                 />
               </div>
