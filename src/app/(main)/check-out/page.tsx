@@ -6,6 +6,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import NotLoggedIn from "@/components/NotLoggedIn";
+import { useCreateOrderMutation } from "@/services/orderService";
+import axios from "axios";
+import Loader from "@/ui/Loader";
 
 const page = () => {
   const router = useRouter(); // Correct usage
@@ -13,20 +16,71 @@ const page = () => {
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const id = searchParams.get("id");
   const totalPrice = searchParams.get("totalPrice");
-  const productName = searchParams.get("productName");
-
+  const [order] = useCreateOrderMutation();
+  const [fullName, setFullName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
+  const [loader, setLoader] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<string>("cod");
 
   const handlePaymentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPaymentMethod(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const data = {
+      productId: id,
+      productName: "Shoe",
+      paymentMethod: paymentMethod,
+      user_info: {
+        fullName: fullName,
+        phoneNumber: phone,
+        shippingAddress: address,
+        email: email,
+      },
+      price: "400",
+      totalPrice: "400",
+    };
+
     if (paymentMethod === "cod") {
-      router.push("/check-out/complete-payment");
+      try {
+        setLoader(true);
+        const result = await axios({
+          url: `${process.env.NEXT_PUBLIC_BASE_URL}/order/create-order`,
+          method: "POST",
+          data,
+        });
+        setLoader(false);
+        console.log(result);
+      } catch (err) {
+        console.log(err);
+      }
     } else if (paymentMethod === "khalti") {
-      router.push("https:www.khalti.com");
+      try {
+        setLoader(true);
+        const result = await axios({
+          url: `${process.env.NEXT_PUBLIC_BASE_URL}/order/create-order`,
+          method: "POST",
+          data,
+        });
+
+        const orderId = result.data?.data?._id;
+        console.log(orderId);
+
+        const khaltiPayment = await axios({
+          url: `${process.env.NEXT_PUBLIC_BASE_URL}/initialize-khalti?orderId=${orderId}`,
+          method: "POST",
+          data,
+        });
+
+        router.push(khaltiPayment.data.paymentInitiate.payment_url);
+        setLoader(false);
+      } catch (err) {
+        console.log(err);
+      }
     } else {
       router.push("https://esewa.com/");
     }
@@ -50,6 +104,8 @@ const page = () => {
                 </label>
                 <input
                   type="text"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
                   placeholder="Enter your full name"
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
@@ -61,6 +117,8 @@ const page = () => {
                 </label>
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
@@ -73,6 +131,8 @@ const page = () => {
                 <input
                   type="tel"
                   placeholder="Enter your phone number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
@@ -82,13 +142,14 @@ const page = () => {
                   Location / Address
                 </label>
                 <textarea
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
                   placeholder="Enter your delivery address"
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </div>
 
-            {/* Right Column - Payment Method and Summary */}
             <div className="space-y-6">
               <div className="space-y-4">
                 <h3 className="text-lg font-bold text-gray-800">
@@ -180,9 +241,9 @@ const page = () => {
 
               <button
                 type="submit"
-                className="w-full py-2 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="flex justify-center items-center w-full py-2 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
               >
-                Proceed to Payment
+                {loader ? <Loader /> : "Proceed to Payment"}
               </button>
             </div>
           </form>

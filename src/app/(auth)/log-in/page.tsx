@@ -31,12 +31,14 @@ export default function page() {
         dispatch(login(token));
         toast.success(result.data.message);
         router.push("/");
+        localStorage.setItem("token", token);
       }
       setLoader(false);
     } catch (error) {
       setLoader(false);
     }
   };
+
   return (
     <>
       {!isLoggedIn ? (
