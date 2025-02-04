@@ -22,10 +22,10 @@ export default function ClientInfo() {
       });
       dispatch(
         setUserInfo({
-          name: result.data.data.username,
-          email: result.data.data.email,
-          phoneNumber: result.data.data.phoneNumber,
-          image: result.data.data.image,
+          name: result.data.data[0].username,
+          email: result.data.data[0].email,
+          phoneNumber: result.data.data[0].phonenumber,
+          image: result.data.data[0].image,
         })
       );
     } catch (error) {

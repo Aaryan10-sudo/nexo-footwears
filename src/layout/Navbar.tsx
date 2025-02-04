@@ -23,6 +23,8 @@ const NavBar = () => {
   const userInfo = useSelector((state: RootState) => state.info);
   const dispatch = useDispatch();
 
+  console.log(userInfo);
+
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 

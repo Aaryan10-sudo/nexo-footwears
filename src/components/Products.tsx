@@ -80,7 +80,7 @@ export default function Products() {
                       </div>
                       <Link
                         className="mb-2 md:mb-0 bg-violet-500 px-5 py-2 shadow-sm tracking-wider text-white rounded-full hover:bg-violet-600"
-                        href={`/check-out?id=${value._id}&totalPrice=${value.price}&productName=${value.name}`}
+                        href={`/check-out?id=${value.product_id}&totalPrice=${value.price}&productName=${value.name}`}
                       >
                         Buy now
                       </Link>
