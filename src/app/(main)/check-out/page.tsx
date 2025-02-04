@@ -1,21 +1,22 @@
 "use client";
 
-import Ruppess from "@/ui/Ruppees";
-import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
 import NotLoggedIn from "@/components/NotLoggedIn";
 import { useCreateOrderMutation } from "@/services/orderService";
-import axios from "axios";
+import { RootState } from "@/store/store";
 import Loader from "@/ui/Loader";
+import Ruppess from "@/ui/Ruppees";
+import axios from "axios";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const page = () => {
-  const router = useRouter(); // Correct usage
+  const router = useRouter();
   const searchParams = useSearchParams();
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const id = searchParams.get("id");
   const totalPrice = searchParams.get("totalPrice");
+  const productName = searchParams.get("productName");
   const [order] = useCreateOrderMutation();
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
@@ -30,10 +31,9 @@ const page = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     const data = {
       productId: id,
-      productName: "Shoe",
+      productName: productName,
       paymentMethod: paymentMethod,
       user_info: {
         fullName: fullName,
@@ -41,8 +41,8 @@ const page = () => {
         shippingAddress: address,
         email: email,
       },
-      price: "400",
-      totalPrice: "400",
+      price: totalPrice,
+      totalPrice: totalPrice,
     };
 
     if (paymentMethod === "cod") {
@@ -53,10 +53,11 @@ const page = () => {
           method: "POST",
           data,
         });
+        router.push("http://localhost:3000/check-out/complete-payment");
         setLoader(false);
-        console.log(result);
       } catch (err) {
         console.log(err);
+        setLoader(false);
       }
     } else if (paymentMethod === "khalti") {
       try {
@@ -220,7 +221,7 @@ const page = () => {
                 <div className="flex justify-between text-sm text-gray-700">
                   <span>Total Payment:</span>
                   <span className="font-semibold flex items-center gap-1">
-                    <Ruppess />. 11,200
+                    <Ruppess />. {totalPrice}
                   </span>
                 </div>
 
@@ -234,7 +235,7 @@ const page = () => {
                 <div className="flex justify-between text-sm  bg-slate-300 text-black h-[30px] px-[10px] items-center rounded-sm">
                   <span>Sub-total:</span>
                   <span className="font-semibold flex items-center gap-1">
-                    <Ruppess />. 11,200
+                    <Ruppess />. {totalPrice}
                   </span>
                 </div>
               </div>

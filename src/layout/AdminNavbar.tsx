@@ -77,7 +77,7 @@ const AdminNavbar = () => {
               </button>
               <div className="hidden lg:flex items-center">
                 <span className="text-base font-normal text-gray-500 mr-5">
-                  Admin Panel
+                  Hello , Admin
                 </span>
               </div>
             </div>

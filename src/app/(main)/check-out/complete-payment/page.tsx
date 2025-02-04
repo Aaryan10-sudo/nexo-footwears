@@ -2,6 +2,7 @@
 
 // import AnimatedTick from "@/components/AnimatedTick";
 import { RootState } from "@/store/store";
+import CompletePayment from "@/ui/CompletePayment";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 
@@ -11,8 +12,8 @@ export default function page() {
   return (
     <div className="h-screen flex flex-col justify-center">
       <div className="flex justify-center self-center flex-col items-center">
-        {/* <AnimatedTick /> */}
-        <h1 className="sm:text-2xl font-semibold text-xl ">
+        <CompletePayment />
+        <h1 className="sm:text-2xl font-semibold text-xl mt-5 ">
           Your order has been placed successfully
         </h1>
       </div>

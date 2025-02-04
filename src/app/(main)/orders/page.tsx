@@ -1,11 +1,11 @@
 "use client";
 
 import NotLoggedIn from "@/components/NotLoggedIn";
-import { Product } from "@/components/Products";
 import { RootState } from "@/store/store";
 import Ruppess from "@/ui/Ruppees";
 import React from "react";
 import { useSelector } from "react-redux";
+import { Product } from "../cart/page";
 
 const products: Product[] = [
   {

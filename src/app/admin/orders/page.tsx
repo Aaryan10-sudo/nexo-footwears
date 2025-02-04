@@ -1,9 +1,6 @@
-import StatsOverview from "@/components/StatsOverview";
-import UserAnalytics from "@/components/UserAnalytics";
+import OrderStats from "@/components/OrderStats";
+import OrderSummary from "@/components/OrderSummary";
 import AdminFooter from "@/layout/AdminFooter";
-import AdminNavbar from "@/layout/AdminNavbar";
-import Sidebar from "@/layout/Sidebar";
-import React from "react";
 
 const page = () => {
   return (
@@ -20,8 +17,8 @@ const page = () => {
           >
             <main>
               <div className="pt-6 px-4">
-                <StatsOverview />
-                <UserAnalytics />
+                <OrderStats />
+                <OrderSummary />
               </div>
             </main>
             <AdminFooter />
