@@ -1,6 +1,7 @@
 "use client";
 import { logout } from "@/redux/authSlice";
 import { RootState } from "@/store/store";
+import { signOut } from "next-auth/react";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -12,6 +13,7 @@ const UserProfileDropdown = () => {
   const signout = () => {
     localStorage.removeItem("authToken");
     dispatch(logout());
+    signOut();
   };
   return (
     <>

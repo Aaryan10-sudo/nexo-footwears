@@ -1,5 +1,6 @@
 "use client";
 
+import GoogleSignIn from "@/components/GoogleSignIn";
 import { login } from "@/redux/authSlice";
 import { useSignInMutation } from "@/services/webService";
 import { RootState } from "@/store/store";
@@ -98,8 +99,9 @@ export default function page() {
                 )}
               </button>
             </form>
+            <GoogleSignIn />
 
-            <p className="text-xs text-center sm:px-6 text-gray-600 tracking-wider">
+            <p className="text-xs text-center sm:px-6 text-gray-600 tracking-wider pt-3">
               Don't have an account?
               <Link
                 rel="noopener noreferrer"

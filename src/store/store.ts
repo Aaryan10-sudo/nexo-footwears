@@ -6,6 +6,7 @@ import infoReducer from "@/redux/infoSlice";
 import { webuserApi } from "@/services/webService";
 import { orderApi } from "@/services/orderService";
 import { productApi } from "@/services/productService";
+import { oauthApi } from "@/services/oauthService";
 
 const store = configureStore({
   reducer: {
@@ -14,12 +15,14 @@ const store = configureStore({
     [webuserApi.reducerPath]: webuserApi.reducer,
     [orderApi.reducerPath]: orderApi.reducer,
     [productApi.reducerPath]: productApi.reducer,
+    [oauthApi.reducerPath]: oauthApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       webuserApi.middleware,
       orderApi.middleware,
-      productApi.middleware
+      productApi.middleware,
+      oauthApi.middleware
     ),
 });
 
