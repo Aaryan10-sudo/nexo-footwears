@@ -3,7 +3,7 @@
 import { login } from "@/redux/authSlice";
 import { useOAuthMutation } from "@/services/oauthService";
 import Google from "@/ui/Google";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, signOut, useSession, getSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -26,29 +26,27 @@ const GoogleSignIn = () => {
     try {
       const result = await oauth(data);
       const token = result.data.token;
+      console.log(token);
       if (token) {
         dispatch(login(token));
         toast.success(result.data.message);
         localStorage.setItem("token", token);
+        await getSession();
         router.push("/");
-        window.location.reload();
       }
     } catch (error) {
       toast.error("OAuth sign-in failed.");
     }
   };
 
-  useEffect(() => {
-    if (session) {
-      handleSubmit();
-    }
-  }, []);
-
   return (
     <div>
       {session ? (
         <button
-          onClick={() => signOut()}
+          onClick={async () => {
+            await signIn("google", { callbackUrl: "/" });
+            handleSubmit();
+          }}
           className="flex p-3 shadow-sm justify-center items-center w-full text-center rounded-sm font-bold gap-5 bg-red-500 text-white"
         >
           Logged In...
