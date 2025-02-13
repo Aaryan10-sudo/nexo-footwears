@@ -37,6 +37,7 @@ export default function page() {
       setLoader(false);
     } catch (error) {
       setLoader(false);
+      toast.error("Invalid email or password.");
     }
   };
 

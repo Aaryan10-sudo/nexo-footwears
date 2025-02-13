@@ -62,7 +62,6 @@ export default function page() {
     };
 
     try {
-      // Call the mutation with the data object
       const response = await signUpData(data);
       console.log("Signup successful:", response);
       setLoader(false);
@@ -74,6 +73,7 @@ export default function page() {
       toast.success(response.data.message);
     } catch (error) {
       setLoader(false);
+      console.log("Signup error:");
     }
   };
 

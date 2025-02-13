@@ -1,4 +1,4 @@
-"use client"; // Only if using the Next.js App Router
+"use client";
 
 import { login } from "@/redux/authSlice";
 import { useOAuthMutation } from "@/services/oauthService";
@@ -29,8 +29,9 @@ const GoogleSignIn = () => {
       if (token) {
         dispatch(login(token));
         toast.success(result.data.message);
-        router.push("/");
         localStorage.setItem("token", token);
+        router.push("/");
+        window.location.reload();
       }
     } catch (error) {
       toast.error("OAuth sign-in failed.");
@@ -41,7 +42,7 @@ const GoogleSignIn = () => {
     if (session) {
       handleSubmit();
     }
-  }, [session]);
+  }, []);
 
   return (
     <div>
