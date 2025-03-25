@@ -137,11 +137,25 @@ const OrderSummary = () => {
                           {value.totalAmount}
                         </p>
                       </td>
-                      <td className="p-3 text-right">
-                        <span className="px-3 py-1 font-semibold rounded-md bg-violet-600 text-gray-50">
+                      <td className="flex items-center justify-center p-3">
+                        <span
+                          className={`w-[70px] h-[25px] text-white flex justify-center items-center rounded-md font-bold
+      ${
+        value.deliveryStatus === "Cancelled"
+          ? "bg-red-500"
+          : value.deliveryStatus === "Processing"
+          ? "bg-yellow-500"
+          : value.deliveryStatus === "Delivered"
+          ? "bg-green-500"
+          : value.deliveryStatus === "Shipped"
+          ? "bg-gray-500"
+          : "bg-gray-500"
+      }`}
+                        >
                           <span>{value.deliveryStatus}</span>
                         </span>
                       </td>
+
                       <td className="p-3 text-center">
                         <p>{value.paymentMethod}</p>
                       </td>

@@ -53,7 +53,9 @@ const page = () => {
           method: "POST",
           data,
         });
-        router.push("http://localhost:3000/check-out/complete-payment");
+        router.push(
+          "https://nexo-footwears.vercel.app/check-out/complete-payment"
+        );
         setLoader(false);
       } catch (err) {
         console.log(err);
